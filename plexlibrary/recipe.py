@@ -165,19 +165,19 @@ class Recipe(object):
 
             if match:
                 if platform.python_version().startswith('2'):
-                	if self.recipe['new_library']['sort_title']['absolute']:
-                    	print(u"{} {} ({})".format(
-                        	i + 1, item['title'].encode('UTF-8'), item['year'].encode('UTF-8')))
-                	else:
-                    	print(u"{} {} ({})".format(
-                        	matching_total, item['title'], item['year']))
-            	else:
-            		if self.recipe['new_library']['sort_title']['absolute']:
-                    	print(u"{} {} ({})".format(
-                        	i + 1, item['title'], item['year']))
-                	else:
-                    	print(u"{} {} ({})".format(
-                        	matching_total, item['title'], item['year']))
+                    if self.recipe['new_library']['sort_title']['absolute']:
+                        print(u"{} {} ({})".format(
+                            i + 1, item['title'].encode('UTF-8'), item['year'].encode('UTF-8')))
+                    else:
+                        print(u"{} {} ({})".format(
+                            matching_total, item['title'], item['year']))
+                else:
+                    if self.recipe['new_library']['sort_title']['absolute']:
+                        print(u"{} {} ({})".format(
+                            i + 1, item['title'], item['year']))
+                    else:
+                        print(u"{} {} ({})".format(
+                            matching_total, item['title'], item['year']))
             else:
                 missing_items.append((i, item))
                 nonmatching_idx.append(i)
