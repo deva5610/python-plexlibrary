@@ -9,9 +9,7 @@ import random
 import subprocess
 import sys
 import time
-
 import plexapi
-
 import plexutils
 import tmdb
 import traktutils
@@ -164,20 +162,12 @@ class Recipe(object):
                     matching_items.append(r)
 
             if match:
-                if platform.python_version().startswith('2'):
-                    if self.recipe['new_library']['sort_title']['absolute']:
-                        print(u"{} {} ({})".format(
-                            i + 1, item['title'].encode('UTF-8'), item['year'].encode('UTF-8')))
-                    else:
-                        print(u"{} {} ({})".format(
-                            matching_total, item['title'], item['year']))
+                if self.recipe['new_library']['sort_title']['absolute']:
+                    print(u"{} {} ({})".format(
+                        i + 1, item['title'].encode('UTF-8'), item['year'].encode('UTF-8')))
                 else:
-                    if self.recipe['new_library']['sort_title']['absolute']:
-                        print(u"{} {} ({})".format(
-                            i + 1, item['title'], item['year']))
-                    else:
-                        print(u"{} {} ({})".format(
-                            matching_total, item['title'], item['year']))
+                    print(u"{} {} ({})".format(
+                        matching_total, item['title'].encode('UTF-8'), item['year'].encode('UTF-8')))
             else:
                 missing_items.append((i, item))
                 nonmatching_idx.append(i)
